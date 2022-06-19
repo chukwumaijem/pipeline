@@ -20,14 +20,10 @@ jobs:
         with:
           node-version: '16.15.0'
 
-      - name: Use application directory
-        run: cd application
-
-      - name: Check pwd
-        run: ls
-
       - name: Install dependencies
+        working-directory: ./application
         run: npm ci
 
       - name: Run Test
+        working-directory: ./application
         run: npm run test
