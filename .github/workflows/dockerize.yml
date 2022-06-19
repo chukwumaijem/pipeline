@@ -9,7 +9,7 @@ on:
 
 jobs:
   Test:
-    uses: ./.github/workflows/deploy-to-heroku.yml
+    uses: ./.github/workflows/test_app.yml
 
   Build:
     runs-on: ubuntu-latest
