@@ -1,4 +1,4 @@
-name: Test Nestjs App
+name: Build and Push Docker Image
 
 on:
   push:
@@ -8,12 +8,12 @@ on:
     types: [opened, reopened, synchronize]
 
 jobs:
-  Test:
+  TestApp:
     uses: ./.github/workflows/run_test.yml
 
   Build:
     runs-on: ubuntu-latest
-    needs: [Test]
+    needs: [TestApp]
     steps:
       - name: Checkout branch
         uses: actions/checkout@v3
