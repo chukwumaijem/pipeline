@@ -21,7 +21,7 @@ jobs:
           node-version: '16.15.0'
 
       - name: Use application directory
-        run: cd ./application
+        run: cd application
 
       - name: Check pwd
         run: ls
