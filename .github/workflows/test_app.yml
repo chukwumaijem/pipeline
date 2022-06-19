@@ -21,10 +21,10 @@ jobs:
           node-version: '16.15.0'
 
       - name: Use application directory
-      - run: cd ./application
+        run: cd ./application
 
       - name: Install dependencies
-      - run: npm ci
+        run: npm ci
 
       - name: Run Test
-      - run: npm run test
+        run: npm run test
