@@ -26,3 +26,23 @@ jobs:
       - name: Run Test
         working-directory: ./application
         run: npm run test
+
+  Build:
+    runs-on: ubuntu-latest
+    needs: [Test]
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v3
+
+      - name: Use Node.js version 16.15.0
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.15.0'
+
+      - name: Install dependencies
+        working-directory: ./application
+        run: npm ci
+
+      - name: Build Application
+        working-directory: ./application
+        run: npm run build
