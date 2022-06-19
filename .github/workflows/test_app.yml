@@ -24,7 +24,7 @@ jobs:
         run: cd ./application
 
       - name: Check pwd
-        run: pwd
+        run: ls
 
       - name: Install dependencies
         run: npm ci
