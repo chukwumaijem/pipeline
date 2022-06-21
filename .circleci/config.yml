@@ -26,7 +26,8 @@ jobs:
       - run:
           name: Run Playbook and Configure server
           command: |
-            ./.ansible/setup.sh
+            cd ./.ansible
+            ./setup.sh
 
 workflows:
   infrastructure:
