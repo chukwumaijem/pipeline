@@ -1,0 +1,33 @@
+---
+- name: 'Update yum packages.'
+  become: true
+  yum: name=* state=latest
+
+- name: 'Install Node and NPM'
+  become: true
+  shell: |
+    sudo yum install -y gcc-c++ make
+    curl -sL https://rpm.nodesource.com/setup_16.x | sudo -E bash -
+    sudo yum install -y nodejs
+
+- name: 'install pm2'
+  npm:
+    name: pm2
+    global: yes
+    production: yes
+    state: present
+
+- name: Create app directory
+  file:
+    path: $HOME/web
+    owner: ec2-user
+    state: directory
+
+- name: Copy indexjs file
+  template:
+    src: 'files/index.js'
+    dest: '$HOME/web/index.js'
+
+- name: Executing node
+  shell: |
+    pm2 start $HOME/web/index.js -f
