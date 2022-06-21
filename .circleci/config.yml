@@ -9,10 +9,10 @@ jobs:
       - run:
           name: Create Cloudformation Stack
           command: |
-            aws cloudformation deploy --template-file template.cfn.yml \
+            aws cloudformation deploy --template-file ./circleci/template.cfn.yml \
               --stack-name pipeline-${CIRCLE_WORKFLOW_ID:0:5} --region us-east-1
 
 workflows:
-  say-hello-workflow:
+  infrastructure:
     jobs:
       - create_infrastructure
