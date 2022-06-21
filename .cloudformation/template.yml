@@ -12,6 +12,12 @@ Resources:
       KeyName: AnsibleTest
       ImageId: ami-0cff7528ff583bf9a
       InstanceType: t2.micro
+      Tags:
+        - Key: Project
+          Value: udacity
+        - Key: Name
+          Value: ci-deploy-pipeline
+
   InstanceSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
