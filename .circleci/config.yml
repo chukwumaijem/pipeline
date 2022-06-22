@@ -1,5 +1,13 @@
 version: 2.1
 
+commands:
+  destroy_environment:
+    steps:
+      - run:
+          name: Destroy Environment
+          command: |
+            aws cloudformation delete-stack --stack-name pipeline-${CIRCLE_WORKFLOW_ID:0:5}
+
 jobs:
   create_infrastructure:
     docker:
@@ -37,7 +45,9 @@ jobs:
     docker:
       - image: alpine:latest
     steps:
-      - run: apk add --update curl
+      - run:
+          name: Install curl
+          command: apk add --update curl
       - run:
           name: Perform a smoke test
           command: |
@@ -49,6 +59,9 @@ jobs:
             else
               return 1
             fi
+      - destroy_environment:
+        when: on fail
+
 workflows:
   infrastructure:
     jobs:
