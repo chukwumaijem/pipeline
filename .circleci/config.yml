@@ -25,7 +25,8 @@ jobs:
           # command: |
           #   apk add --update ansible
           command: |
-            sudo amazon-linux-extras install ansible2 -y
+            yum install epel-release
+            yum install ansible
       - run:
           name: Run Playbook and Configure server
           command: |
