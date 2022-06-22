@@ -25,7 +25,6 @@ jobs:
           # command: |
           #   apk add --update ansible
           command: |
-            yum install epel-release
             yum install ansible
       - run:
           name: Run Playbook and Configure server
