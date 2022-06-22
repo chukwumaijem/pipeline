@@ -29,7 +29,7 @@ jobs:
             cd ./.ansible
             ./setup.sh
 
-  smoke_test:
+  smoke_test_application:
     docker:
       - image: alpine:latest
     steps:
@@ -48,5 +48,6 @@ jobs:
 workflows:
   infrastructure:
     jobs:
-      - create_infrastructure
-      # - configure_infrastructure
+      # - create_infrastructure
+      - configure_infrastructure
+      # - smoke_test_application
