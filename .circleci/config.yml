@@ -25,7 +25,8 @@ jobs:
           # command: |
           #   apk add --update ansible
           command: |
-            yum install ansible
+            amazon-linux-extras enable ansible2
+            yum install ansible -y
       - run:
           name: Run Playbook and Configure server
           command: |
