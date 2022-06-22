@@ -14,15 +14,18 @@ jobs:
 
   configure_infrastructure:
     docker:
-      - image: python:3.7-alpine3.11
+      # - image: python:3.7-alpine3.11
+      - image: amazon/aws-cli
     steps:
       - checkout
       - add_ssh_keys:
           fingerprints: ['e6:5a:81:c6:ae:78:64:aa:64:02:5d:81:ce:5b:e6:25']
       - run:
           name: Install Ansible
+          # command: |
+          #   apk add --update ansible
           command: |
-            apk add --update ansible
+            sudo amazon-linux-extras install ansible2 -y
       - run:
           name: Run Playbook and Configure server
           command: |
