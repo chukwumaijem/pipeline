@@ -1,13 +1,13 @@
 version: 2.1
 
-commands:
-  destroy_environment:
-    steps:
-      - run:
-          name: Destroy Environment
-          when: on fail
-          command: |
-            aws cloudformation delete-stack --stack-name pipeline-${CIRCLE_WORKFLOW_ID:0:5}
+# commands:
+#   destroy_environment:
+#     steps:
+#       - run:
+#           name: Destroy Environment
+#           when: on fail
+#           command: |
+#             aws cloudformation delete-stack --stack-name pipeline-${CIRCLE_WORKFLOW_ID:0:5}
 
 jobs:
   create_infrastructure:
@@ -57,7 +57,7 @@ jobs:
             else
               return 1
             fi
-      - destroy_environment
+      # - destroy_environment
 
 workflows:
   infrastructure:
