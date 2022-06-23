@@ -41,7 +41,7 @@ jobs:
 
   smoke_test_application:
     docker:
-      - image: alpine:latest
+      - image: amazon/aws-cli
     steps:
       - run:
           name: Install curl
@@ -49,7 +49,7 @@ jobs:
       - run:
           name: Perform a smoke test
           command: |
-            URL="https://blog.udacitym/"
+            URL="https://blog.udacitom/"
             # Test if website exists
             if curl -s --head ${URL} 
             then
