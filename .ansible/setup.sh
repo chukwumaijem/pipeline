@@ -15,6 +15,6 @@ configFile = "ansible.cfg"
 touch $configFile
 
 echo [defaults] > $configFile
-echo "host_key_checking = false" >> $configFile
+echo host_key_checking = false >> $configFile
 
 ansible-playbook main-remote.yml -i inventory.txt
