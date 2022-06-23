@@ -14,8 +14,8 @@
   become: true
   npm:
     name: pm2
-    global: yes
-    production: yes
+    global: true
+    production: true
     state: present
 
 - name: Create app directory
