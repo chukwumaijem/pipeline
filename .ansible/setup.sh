@@ -11,7 +11,7 @@ aws ec2 describe-instances --query 'Reservations[*].Instances[*].PublicIpAddress
   --output text >> $fileName
 
 # Create ansible config file
-configFile = "ansible.cfg"
+configFile="ansible.cfg"
 touch $configFile
 
 echo [defaults] > $configFile
