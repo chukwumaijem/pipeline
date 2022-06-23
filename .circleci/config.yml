@@ -59,8 +59,8 @@ jobs:
             else
               return 1
             fi
-      - destroy_environment:
-        when: on fail
+      # - destroy_environment:
+      #   when: on fail
 
 workflows:
   infrastructure:
